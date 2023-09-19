@@ -35,11 +35,11 @@ while run:
 
         
         
-    if rect.left<0 or rect.right>SCREEN_WIDTH:
+    if rect.left<=0 or rect.right>=SCREEN_WIDTH:
         x *=-1
         X_SPEED = x*random.randint(1, 4)
         Y_SPEED = y*(5-X_SPEED)
-    if rect.top<0 or rect.bottom>SCREEN_HEIGHT:
+    if rect.top<=0 or rect.bottom>=SCREEN_HEIGHT:
         y *=-1
         X_SPEED = x*random.randint(1, 4)
         Y_SPEED = y*(5-X_SPEED)
