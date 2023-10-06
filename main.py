@@ -36,6 +36,8 @@ def check(rect1, rect2):
         return True
     return False
 
+
+
 dim = 100
 ROCK = pygame.transform.scale(pygame.image.load(os.path.join('assets', 'ROCK.png')), (dim, dim))
 rect_R = ROCK.get_rect()
@@ -51,6 +53,11 @@ rect_S = SCISSORS.get_rect()
 rect_S.topleft = (SCREEN_WIDTH-dim, dim)
 
 FPS = 30
+varHold = {
+    "Rock": [3, ROCK, rect_R, Rx, Ry],
+    "Paper": [2, PAPER, rect_P, Px, Py],
+    "Scissors": [1, SCISSORS, rect_S, Sx, Sy]
+}
 
 clock = pygame.time.Clock()
 run = True
@@ -70,14 +77,13 @@ while run:
     Sx, Sy = hold[0], hold[1]
 
 
-    if check(rect_R, rect_S):
-        SCISSORS = pygame.transform.scale(pygame.image.load(os.path.join('assets', 'ROCK.png')), (dim, dim))
+    for i in range(len(varHold)-1):
+        
+        if i == len(varHold)-1: val = check(varHold[i+1][0], varHold[i+2][0])
+        else: check(varHold[i+1][0], varHold[0][0])
+        if val:
+            varHold[i+1][0] = varHold[i+2][1]
 
-    if check(rect_S, rect_P):
-        PAPER = pygame.transform.scale(pygame.image.load(os.path.join('assets', 'SCISSORS.png')), (dim, dim))
-
-    if check(rect_P, rect_R):
-        ROCK = pygame.transform.scale(pygame.image.load(os.path.join('assets', 'PAPER.png')), (dim, dim))
 
     screen.fill((0, 0, 0))
     screen.blit(ROCK, rect_R)
