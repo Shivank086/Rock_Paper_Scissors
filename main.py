@@ -37,9 +37,9 @@ def typeCheck(img1, img2):
     return False
 
 
-dim = 50
+dim = 25
 FPS = 20
-vars = 20
+vars = 40
 varHold = []
 for i in range(vars):
     varHold.append([3, pygame.transform.scale(pygame.image.load(os.path.join('assets', 'ROCK.png')), (dim, dim)), 
