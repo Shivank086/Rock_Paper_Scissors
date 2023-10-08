@@ -1,7 +1,6 @@
 import pygame
 import os
 import random
-import math
 pygame.init()
 
 SCREEN_WIDTH = 1750
@@ -9,17 +8,8 @@ SCREEN_HEIGHT = 1000
 
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption("First Game")
-def switch(fir, sec):
-    z=fir
-    fir=-sec
-    sec=z
-    return fir, sec
 
 def move(rect, x, y, i):
-    if x == 0: holdx = 0
-    else: holdx = abs(x) / x
-    if y == 0: holdy = 0
-    else: holdy = abs(y) / y
     if rect.left < 5 or rect.right > SCREEN_WIDTH-5:
         x = -x
     elif rect.top < 5 or rect.bottom > SCREEN_HEIGHT-5:
