@@ -18,13 +18,9 @@ def move(rect, x, y, i):
     varHold[i][2].top += y
     varHold[i][3], varHold[i][4] = x, y
 
-def placeCheck(rect1, rect2):
-    if rect1.top<rect2.bottom and rect1.bottom>rect2.top and rect1.right>rect2.left and rect1.left<rect2.right: return True
-    return False
-
-def typeCheck(img1, img2):
-    if img1==img2+1 or img1 == img2-2:return True
-    return False
+def placeCheck(rect1, rect2): return rect1.top<rect2.bottom and rect1.bottom>rect2.top and rect1.right>rect2.left and rect1.left<rect2.right
+    
+def typeCheck(img1, img2): return img1==img2+1 or img1 == img2-2
 
 
 dim = 25
